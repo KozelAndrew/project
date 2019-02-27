@@ -14,12 +14,11 @@
     $i = 0;
     while ($row = mysqli_fetch_array($data)) {
         if ($row['user_id'] == $_SESSION['user_id']) {
-            echo '<p align="right" class="you">' . $_SESSION['username'] . '<br />' . strip_tags($row['msg']) . '</p><br/ >';
+            echo '<p align="right" class="you">' . $_SESSION['username'] . '<br />' . htmlspecialchars($row['msg']) . '</p><br/ >';
         } else {
-            echo '<p class="friend">' . $row['username'] . '<br />' . strip_tags($row['msg']) . '</p></p><br/ >';
+            echo '<p class="friend">' . $row['username'] . '<br />' . htmlspecialchars($row['msg']) . '</p></p><br/ >';
         }
         $i++;
-
     }
     echo '</div>';
 ?>
